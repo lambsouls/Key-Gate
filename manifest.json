@@ -1,0 +1,52 @@
+{
+        "manifest_version": 2,
+        "name": "Key;Gate",
+        "version": "1.0",
+        "description": "ipfs链接兼容插件",
+        "author": "Lee",
+        "icons":
+        {
+                "16": "img/icon.png",
+                "48": "img/icon.png",
+                "128": "img/icon.png"
+        },
+        "browser_action":
+        {
+                "default_icon": "img/icon.png",
+                "default_title": "ipfs链接兼容插件",
+                "default_popup": "main.html"
+        },
+        "content_scripts":
+        [
+                {
+                        "matches":["*://*/*"],
+                        "js":["js/onclickurl.js","js/onclickurl2.js","js/onclickurl3.js"],
+                        "run_at":"document_idle"
+                }
+        ],
+        "background":
+	{
+		"scripts": ["js/background1.js","js/background2.js"]
+	},
+
+        "permissions":
+	[
+		"contextMenus", // 右键菜单
+		"tabs", // 标签
+		"notifications", // 通知
+		"webRequest", // web请求
+		"webRequestBlocking",
+		"storage", // 插件本地存储
+                "*://*/*",
+		"http://*/*", // 可以通过executeScript或者insertCSS访问的网站
+		"https://*/*", // 可以通过executeScript或者insertCSS访问的网站
+                "activeTab",
+                "browsingData",
+                "chrome://favicon/",
+                "clipboardWrite",
+                "cookies",
+                "idle",
+                "storage",
+                "unlimitedStorage"
+	]
+}
