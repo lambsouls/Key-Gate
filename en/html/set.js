@@ -1,0 +1,22 @@
+accessmode=localStorage.getItem('accessmode');
+if(accessmode=='"local"'){
+    mode.innerText="Local";
+}
+if(accessmode=='"addr"'){
+    mode.innerText="Adress";
+}
+theport=localStorage.getItem('port');
+theport=theport.replace('"',"");
+theport=theport.replace('"',"");
+if(accessmode=='"local"'){
+    addr.innerText="http://127.0.0.1:"+theport+"/";
+    address="http://127.0.0.1:"+theport+"/";
+}
+if(accessmode=='"addr"'){
+    theaddr=localStorage.getItem('addr');
+    theaddr=theaddr.replace('"',"");
+    theaddr=theaddr.replace('"',"");
+    addr.innerText="http://"+theaddr+"/";
+    address="http://"+theaddr+"/";
+}
+localStorage.setItem('address', JSON.stringify(address));
